@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
   }
 
   try {
-    const linkData {
+    const linkData = {
       linkName: req.body.linkName,
       linkAdd: req.body.linkAdd,
     };
