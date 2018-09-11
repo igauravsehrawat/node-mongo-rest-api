@@ -1,5 +1,5 @@
 const getAllLinks = require('express').Router();
-const Link = require('../../models/links');
+const { findAllLinks } = require('./services');
 const sendResponse = require('../../helpers/sendResponse');
 const log4js = require('log4js');
 
@@ -8,7 +8,7 @@ logger.level = 'error';
 
 getAllLinks.get('/', async (req, res) => {
   try {
-    const data = await Link.find();
+    const data = await findAllLinks();
     return sendResponse(res, 200, data, 'Get data successfully');
   } catch (err) {
     logger.error(err);

@@ -1,6 +1,6 @@
 const getOneLink = require('express').Router();
-const Link = require('../../models/links');
 const sendResponse = require('../../helpers/sendResponse');
+const { findLinkById } = require('./services');
 const log4js = require('log4js');
 
 const logger = log4js.getLogger();
@@ -16,7 +16,7 @@ getOneLink.get('/:id', async (req, res) => {
 
   try {
     const { id } = req.params;
-    const data = await Link.findById(id);
+    const data = await findLinkById(id);
     return sendResponse(res, 200, data, 'Get data successfully');
   } catch (err) {
     logger.error(err);
