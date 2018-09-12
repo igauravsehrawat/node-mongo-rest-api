@@ -1,12 +1,12 @@
-const router = require('express').Router();
+const addLink = require('express').Router();
 const sendResponse = require('../../helpers/sendResponse');
-const { addLink } = require('./services');
+const { createLink } = require('./services/db');
 const log4js = require('log4js');
 
 const logger = log4js.getLogger();
 logger.level = 'error';
 
-router.post('/', async (req, res) => {
+addLink.post('/', async (req, res) => {
   // const {linkName, linkAdd} = req.body;
   // validations
   req.check('linkName', 'link name is required').exists().isAlpha().isLength({ min: 5 });
@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
       linkName: req.body.linkName,
       linkAdd: req.body.linkAdd,
     };
-    await addLink(linkData);
+    await createLink(linkData);
     return sendResponse(res, 200, [], 'data saved successfully');
   } catch (err) {
     logger.error(err);
