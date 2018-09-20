@@ -1,5 +1,5 @@
 const getAllLinks = require('express').Router();
-const { findAllLinks } = require('./services/db');
+const { findAllLinks } = require('../../services/database/link');
 const sendResponse = require('../../helpers/sendResponse');
 const log4js = require('log4js');
 

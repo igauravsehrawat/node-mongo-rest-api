@@ -1,6 +1,6 @@
 const getOneLink = require('express').Router();
 const sendResponse = require('../../helpers/sendResponse');
-const { findLinkById } = require('./services/db');
+const { findLinkById } = require('../../services/database/link');
 const log4js = require('log4js');
 
 const logger = log4js.getLogger();

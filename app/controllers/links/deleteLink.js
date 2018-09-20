@@ -1,5 +1,5 @@
 const deleteLink = require('express').Router();
-const { removeLink } = require('./services/db');
+const { removeLink } = require('../../services/database/link');
 const sendResponse = require('../../helpers/sendResponse');
 const log4js = require('log4js');
 
